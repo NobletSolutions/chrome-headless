@@ -1,0 +1,14 @@
+[Unit]
+Description=Headless Chrome Browser
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/sysconfig/chrome-headless
+#ExecStartPre=/bin/bash -l -c 'echo "/usr/bin/google-chrome-beta $OPTIONS">/tmp/options.debug'
+ExecStart=/usr/bin/google-chrome $OPTIONS 
+PrivateTmp=false
+User=chrome-headless
+Group=chrome-headless
+
+[Install]
+WantedBy=multi-user.target
